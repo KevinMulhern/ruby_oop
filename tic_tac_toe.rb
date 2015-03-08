@@ -152,7 +152,6 @@ class TicTacToe
 			return symbol
 		end
 	end
-
 end
 
 tictactoe = TicTacToe.new
