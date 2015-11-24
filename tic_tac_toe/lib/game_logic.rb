@@ -24,13 +24,21 @@ class GameLogic
 
   def play_again_choices(choice)
 		if choice == "y"
-			game.create_new_game
+      create_new_game
 		elsif choice == 'n'
-			game.exit_game
+			exit_game
 		else
-			interface.display_invalid_choice_notification
+			interface.invalid_choice_notification
 		end
 	end
+
+  def create_new_game
+    game.create_new_game
+  end
+
+  def exit_game
+    game.exit_game
+  end
 
   def check_three_in_row(positions, symbol)
     board.three_positions_in_row?(positions, symbol)
@@ -38,8 +46,12 @@ class GameLogic
 
   def move_player_on_board(symbol)
 		pos = game.get_position_from_player
-		board.set_position(pos, symbol)
+    set_positions(pos, symbol)
 	end
+
+  def set_positions(pos, symbol)
+    board.set_position(pos, symbol)
+  end
 
   def end_of_game?(name)
     if game.current_player_won?
@@ -48,4 +60,6 @@ class GameLogic
       game_tied_actions
     end
   end
+
+
 end

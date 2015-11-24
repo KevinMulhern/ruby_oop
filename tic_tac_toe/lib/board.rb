@@ -3,6 +3,7 @@ class Board
 
   def initialize
     @positions = new_board
+    puts self.inspect
   end
 
   def new_board
