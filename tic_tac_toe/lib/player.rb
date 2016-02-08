@@ -9,19 +9,6 @@ class Player
     show_symbol
   end
 
-  def player_number
-    @@player_number
-  end
-
-  def get_name
-    print "Please enter your name Player #{player_number}: "
-    gets.chomp
-  end
-
-  def show_symbol
-    puts "Hi #{name} you are #{symbol}"
-  end
-
   def position_choice
     gets.chomp.to_i - 1
   end
@@ -30,7 +17,22 @@ class Player
     gets.chomp.downcase
   end
 
+  private
+
+  def show_symbol
+    puts "Hi #{name} you are #{symbol}"
+  end
+
   def set_symbol
     player_number == 1 ? "X" : "O"
+  end
+
+  def player_number
+    @@player_number
+  end
+
+  def get_name
+    print "Please enter your name Player #{player_number}: "
+    gets.chomp
   end
 end

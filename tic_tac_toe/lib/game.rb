@@ -16,25 +16,7 @@ class Game
 		@game_logic = new_game_logic
 	end
 
-	def clear_screen
-		interface.clear_screen
-	end
 
-	def all_players
-		[@player1, @player2]
-	end
-
-	def new_game_logic
-		GameLogic.new(self, interface, board)
-	end
-
-	def create_new_interface
-		Interface.new(@board)
-	end
-
-	def create_new_board
-		Board.new
-	end
 
 	def play
 		loop do
@@ -95,7 +77,6 @@ class Game
 		exit
 	end
 
-
 	def create_new_game
 		clear_last_game
 		clear_screen
@@ -114,6 +95,28 @@ class Game
 
 	def check_three_in_row(positions)
 		game_logic.check_three_in_row(positions, current_player.symbol)
+	end
+
+	private
+
+	def clear_screen
+		interface.clear_screen
+	end
+
+	def create_new_board
+		Board.new
+	end
+
+	def all_players
+		[@player1, @player2]
+	end
+
+	def new_game_logic
+		GameLogic.new(self, interface, board)
+	end
+
+	def create_new_interface
+		Interface.new(@board)
 	end
 end
 
