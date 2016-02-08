@@ -34,4 +34,3 @@ class Grid
     "-----" * 3
   end
 end
-
